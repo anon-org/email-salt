@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="title" content="email-salter">
+  <meta name="description" content="salting email">
+  <meta name="author" content="Clavin June">
+  <title></title>
+</head>
+<body>
+
+  <div>
+    <input id="email" type="email" placeholder="email">
+  </div>
+  <div>
+    <input id="tag" type="text" placeholder="tag">
+  </div>
+  <div>
+    <input id="secret" type="text" placeholder="secret">
+  </div>
+  <div>
+    <button id="generate">Generate</button>
+  </div>
+  <div id="result"></div>
+
+<script type="text/javascript" src="md5.js"></script>
+<script type="text/javascript">
+  'use strict'
+  const $ = e => document.querySelector(e) 
+
+  $('#generate').onclick = e => {
+    const email = $('#email').value
+    const tag = $('#tag').value
+    const secret = $('#secret').value
+
+    let splitted = email.split('@')
+
+    if ( splitted.length < 2 ) {
+      alert('email format error')
+      return
+    }
+
+    let salt = md5(`${tag}-${secret}`).substring(0, 5)
+
+    $('#result').innerHTML = `${splitted[0]}+${tag}-${salt}@${splitted[1]}`
+  }
+
+</script>
+</body>
+</html>
