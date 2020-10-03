@@ -1,50 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="title" content="email-salter">
-  <meta name="description" content="salting email">
-  <meta name="author" content="Clavin June">
-  <title></title>
-</head>
-<body>
-  inspired by <a href="https://robsears.com/does-anyone-else-salt-their-email/">this</a>
-  <div>
-    <input id="email" type="email" placeholder="email">
-  </div>
-  <div>
-    <input id="tag" type="text" placeholder="tag">
-  </div>
-  <div>
-    <input id="secret" type="text" placeholder="secret">
-  </div>
-  <div>
-    <button id="generate">Generate</button>
-  </div>
-  <div id="result"></div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="title" content="email-salter" />
+    <meta name="description" content="salting email" />
+    <meta name="author" content="Clavin June" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title></title>
+  </head>
+  <body>
+    <div class="card gen" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title text-center">
+          <strong>Salt Email</strong
+          >
+        </h5>
+        <p class="card-text">
+          <div class="text-center">
+            <input id="email" type="email" placeholder="email" />
+          </div><br>
+          <div class="text-center">
+            <input id="tag" type="text" placeholder="tag" />
+          </div><br>
+          <div class="text-center">
+            <input id="secret" type="text" placeholder="secret" />
+          </div><br>
+          <div>
+            <button type="button" class="btn btn-outline-dark btn-block" id="generate">
+              Generate
+            </button><br>
+          </div>
+          <pre class="prettyprint"><div id="result"></div></pre>
+        </p>
+      </div>
+      <small>
+        Inspired by
+        <a href="https://robsears.com/does-anyone-else-salt-their-email/"
+          >this</a
+        ></small>
+    </div>
 
-<script type="text/javascript" src="md5.js"></script>
-<script type="text/javascript">
-  'use strict'
-  const $ = e => document.querySelector(e) 
-
-  $('#generate').onclick = e => {
-    const email = $('#email').value
-    const tag = $('#tag').value
-    const secret = $('#secret').value
-
-    let splitted = email.split('@')
-
-    if ( splitted.length < 2 ) {
-      alert('email format error')
-      return
-    }
-
-    let salt = md5(`${tag}-${secret}`).substring(0, 5)
-
-    $('#result').innerHTML = `${splitted[0]}+${tag}-${salt}@${splitted[1]}`
-  }
-
-</script>
-</body>
+    <script type="text/javascript" src="assets/js/md5.js"></script>
+    <script type="text/javascript" src="assets/js/gen.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  </body>
 </html>

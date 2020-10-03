@@ -1,0 +1,18 @@
+body {
+  background: linear-gradient(
+      217deg,
+      rgba(255, 0, 0, 0.8),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.gen {
+  margin: 140px auto;
+  width: auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: linear-gradient(#e66465, #9198e5);
+}
