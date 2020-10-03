@@ -1,0 +1,138 @@
+:root {
+    --primary-color: #302AE6;
+    --secondary-color: #536390;
+    --font-color: #424242;
+    --bg-color: #fff;
+    --heading-color: #292922;
+}
+
+[data-theme="dark"] {
+    --primary-color: #9A97F3;
+    --secondary-color: #818cab;
+    --font-color: #e1e1ff;
+    --bg-color: #161625;
+    --heading-color: #818cab;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--font-color);
+}
+
+h3 {
+    color: var(--secondary-color);
+}
+
+a {
+    color: var(--primary-color);
+}
+
+.theme-switch-wrapper {
+    display: flex;
+    position: absolute;
+    top: 6.50em;
+    right: 56%;
+    z-index: 100;
+    align-items: center;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+}
+
+.slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+}
+
+input:checked+.slider {
+    background-color: #66bb6a;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 90px auto;
+    width: 18rem;
+    padding: 10px;
+    border: 5px solid #ccc;
+    border-radius: 5px;
+}
+
+.judul {
+    text-align: center;
+    margin-top: 35px;
+}
+
+button {
+    position: fixed;
+    width: 200px;
+    height: 40px;
+    margin-left: 50px;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: grey;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0059ff;
+}
+
+label {
+    margin-left: 30px;
+}
+
+input {
+    float: right;
+    margin-right: 30px;
+}
+
+.result {
+    margin-top: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+}
